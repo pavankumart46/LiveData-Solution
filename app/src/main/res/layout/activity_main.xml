@@ -3,6 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="myvar"
+            type="youtube.com.vidhvan.databinding_viewmodel_livedata_starter.MainViewModel" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -11,6 +16,7 @@
 
 
         <Button
+            android:onClick="@{()->myvar.increment()}"
             android:id="@+id/plus_btn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -22,6 +28,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
+            android:onClick="@{() -> myvar.decrement()}"
             android:id="@+id/minus_btn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -36,7 +43,7 @@
             android:id="@+id/score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0"
+            android:text="@{String.valueOf(myvar.score)}"
             android:textAppearance="@style/TextAppearance.AppCompat.Display4"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/minus_btn"
